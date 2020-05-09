@@ -1,5 +1,5 @@
 ---
-title: "CodeBook.md"
+title: "CodeBook"
 author: "morbosad"
 date: "5/7/2020"
 output: html_document
@@ -9,15 +9,14 @@ output: html_document
 
 ### Derivation of Data
 
-The dataset here is produced by running the run_analysis.R script in a
-directory containing the unziped data obtained from this [link](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip). Unziping the file should produce directory "UCI HAR Dataset", which
-contains the original descriptions of the data, as well as two subdirectories
-containing the test and training datasets. 
+The dataset in `data_averages.txt` is produced by running the run_analysis.R
 
 The script requires the 'dplyr' package, which may be installed via
 ```
 install.packages("dplyr"")
 ```
+
+See the README for more information on running the script.
 
 ### Feature Data
 
@@ -29,7 +28,8 @@ A full description is availabe at <http://archive.ics.uci.edu/ml/datasets/Human+
 This data was downloaded from <https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip>
 
 This dataset is a subset of the original, using only the 'mean' and
-'std' (standard deviation) variables from the original. Each variable
+'std' (standard deviation) variables from the original (it does *not*
+use the gravityMean and meanFreq variables). Each variable
 is the average of the corresponding variable for each subject and
 activity of both the test and training datasets.
 In other words, each each row contains the average of the
@@ -60,15 +60,15 @@ columns are real numbers between -1.0 and 1.0 that are the averages of the
 "feature" variables in the original dataset.
 
 * Subject
-  + integer: subject id
+  + integer: the ID of the test subject
 * Activity
-  + string: one of six activity names
-  + 1 WALKING
-  + 2 WALKING_UPSTAIRS
-  + 3 WALKING_DOWNSTAIRS
-  + 4 SITTING
-  + 5 STANDING
-  + 6 LAYING
+  + character string: the activity performed when measurements where taken. One of:
+  + WALKING
+  + WALKING_UPSTAIRS
+  + WALKING_DOWNSTAIRS
+  + SITTING
+  + STANDING
+  + LAYING
 * AvgTimeBodyAccelerationMeanX
 * AvgTimeBodyAccelerationMeanY
 * AvgTimeBodyAccelerationMeanZ
@@ -135,21 +135,3 @@ columns are real numbers between -1.0 and 1.0 that are the averages of the
 * AvgFFTBodyBodyGyroMagStd
 * AvgFFTBodyBodyGyroJerkMagMean
 * AvgFFTBodyBodyGyroJerkMagStd
-
-make a link like this: <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
